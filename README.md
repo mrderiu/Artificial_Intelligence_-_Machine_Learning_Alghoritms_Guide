@@ -56,14 +56,14 @@ Each section links (or will progressively link) to **practical implementations**
 19. [Optimization](#71-genetic-algorithms) — Genetic Algorithms, PSO
 20. [Probabilistic models](#73-bayesian-networks) — Bayesian Networks, MCMC
 21. [Symbolic AI](#75-expert-systems) — Expert Systems, Fuzzy Logic
-22. [Learning with few 23. Semi-supervised learning (#77-semi-supervised learning) — Semi-supervised learning, transfer learning, fine-tuning
-24. Explainable AI (#80-explainable-ai) — SHAP, LIME
-25. Model evaluation (#83-model-evaluation)
-26. Algorithm selection cheat sheet (#84-algorithm-selection-cheat-sheet)
-27. Practical flow for tabular data (#85-tabular-data-practical-model-selection)
-28. The most important rule (#86-the-most-important-rule)
-29. Recommended learning path (#87-recommended-learning-path)
-30. Repository structure (#88-repository-structure)
+22. [Semi-supervised learning](#77-semi-supervised-learning) — Semi-supervised learning, transfer learning, fine-tuning
+24. [Explainable AI](#80-explainable-ai) — SHAP, LIME
+25. [Model evaluation](#83-model-evaluation)
+26. [Algorithm selection cheat sheet](#84-algorithm-selection-cheat-sheet)
+27. [Practical flow for tabular data](#85-tabular-data-practical-model-selection)
+28. [The most important rule](#86-the-most-important-rule)
+29. [Recommended learning path](#87-recommended-learning-path)
+30. [Repository structure](#88-repository-structure)
 31. Repositories practicals](#-practical-repositories)
 
 ---
@@ -1274,7 +1274,7 @@ Applications: control systems, industrial automation, decision support.
 
 ---
 
-# 77. Semi-Supervised Learning
+# 77. Semi Supervised Learning
 
 Semi-supervised learning combines a small amount of labeled data with a large amount of unlabeled data. Useful when labels are expensive to obtain.
 
@@ -1535,10 +1535,10 @@ Dataset → [Dataset en Kaggle](...)
 Notebook → [random_forest.ipynb](...)
 ```
 
-El objetivo es conectar:
+The goal is to connect:
 
 ```text
-TEORÍA → CÓDIGO → DATASET → EXPERIMENTO → RESULTADOS → EXPLICABILIDAD → APLICACIÓN REAL
+THEORY → CODE → DATASET → EXPERIMENT → RESULTS → EXPLAINABILITY → REAL-WORLD APPLICATION
 ```
 
 > ✏️ **Pendiente:** ir añadiendo aquí los enlaces reales a cada uno de tus repos a medida que los subas (uno por algoritmo/proyecto, o agrupados por bloque temático).
