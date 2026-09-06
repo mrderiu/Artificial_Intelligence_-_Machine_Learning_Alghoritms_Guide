@@ -926,7 +926,7 @@ Recommendation
 
 ## 3. Deep Learning
 
-##### 3.1 MLP (MultiLayer Perceptron)
+##### 3.1 MLP (MultiLayer Perceptron) 
 - **Problem it solves:** general nonlinear function approximation for tabular classification/regression.
 - **Why use it:** flexible, can model complex nonlinear relationships given enough data.
 - **When to use it:** tabular data with complex nonlinear patterns, or as a component within larger architectures.
@@ -935,6 +935,7 @@ Recommendation
 - **Limitations:** needs more data and tuning than tree-based models for tabular tasks; less interpretable.
 - **Alternatives:** XGBoost / LightGBM / CatBoost for tabular data.
 - **How to implement it:** `torch.nn` / `tensorflow.keras` (`Dense` layers), or `sklearn.neural_network.MLPClassifier`.
+- **Repository**: https://github.com/mrderiu/Neuronal_Network_MLP
 
 ##### 3.2 CNN (Convolutional Neural Network)
 - **Problem it solves:** detecting spatial patterns in images (or grid-like data).
