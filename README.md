@@ -147,6 +147,10 @@ Each section links (or will progressively link) to **practical implementations**
 
 11. [The Most Important Rule](#11-the-most-important-rule)
 
+12. [Algorithm Selection Cheat Sheet](#11-algorithm-selection-cheat-sheet)
+    
+13. [Tabular Data: Practical Model Selection](#13-tabular-data-practical-model-selection)
+
 ---
 
 # Artificial Intelligence Overview
@@ -328,7 +332,7 @@ Recommendation
 - **Alternatives:** Decision Trees (learn rules from data instead of hand-coding them), Fuzzy Logic (for partial truth).
 - **How to implement it:** rule engines like Drools, CLIPS, or a simple `if/else` / rules-as-data structure in Python.
 
-### Rule-Based Systems
+### 1.2 Rule-Based Systems
 - **Problem it solves:** automating decisions that follow a fixed, known logic.
 - **Why use it:** predictable, fast, and requires no training data.
 - **When to use it:** validation logic, alerting systems, business rule engines.
@@ -338,7 +342,7 @@ Recommendation
 - **Alternatives:** Decision Trees, Expert Systems.
 - **How to implement it:** conditional logic in code, or a rules engine (Drools, business rule management systems).
 
-### Knowledge Graphs
+### 1.3 Knowledge Graphs
 - **Problem it solves:** representing entities and their relationships explicitly, enabling reasoning over connections.
 - **Why use it:** captures relational structure that flat tables can't.
 - **When to use it:** semantic search, recommendation, RAG pipelines, knowledge management.
@@ -348,7 +352,7 @@ Recommendation
 - **Alternatives:** relational databases, vector embeddings.
 - **How to implement it:** graph databases such as Neo4j, or RDF/SPARQL stacks.
 
-### Search / Planning
+### 1.4 Search / Planning
 - **Problem it solves:** finding a sequence of actions from an initial state to a goal state.
 - **Why use it:** guarantees an optimal or near-optimal path when the state space is well defined.
 - **When to use it:** routing, logistics, puzzle solving, game AI.
@@ -366,7 +370,7 @@ Recommendation
 
 #### 2.1.1 Regression
 
-##### Linear Regression
+##### 2.1.1.1 Linear Regression
 - **Problem it solves:** predicting a continuous numerical value from input variables.
 - **Why use it:** it's fast, transparent, and gives a strong baseline before trying anything more complex.
 - **When to use it:** target is numerical, relationships are roughly linear, interpretability matters.
@@ -376,7 +380,7 @@ Recommendation
 - **Alternatives:** Ridge/Lasso/Elastic Net (regularized versions), Random Forest/XGBoost (nonlinear).
 - **How to implement it:** `sklearn.linear_model.LinearRegression`.
 
-##### Ridge
+##### 2.1.1.2 Ridge
 - **Problem it solves:** regression with many correlated features, where plain linear regression overfits.
 - **Why use it:** stabilizes coefficients without removing any feature.
 - **When to use it:** multicollinearity is present and you want to keep all predictors.
@@ -386,7 +390,7 @@ Recommendation
 - **Alternatives:** Lasso, Elastic Net.
 - **How to implement it:** `sklearn.linear_model.Ridge`.
 
-##### Lasso
+##### 2.1.1.3 Lasso
 - **Problem it solves:** regression with many potentially irrelevant features.
 - **Why use it:** performs automatic feature selection by zeroing out unimportant coefficients.
 - **When to use it:** you suspect many features are irrelevant and want a sparser, simpler model.
@@ -396,7 +400,7 @@ Recommendation
 - **Alternatives:** Ridge, Elastic Net.
 - **How to implement it:** `sklearn.linear_model.Lasso`.
 
-##### Elastic Net
+##### 2.1.1.4 Elastic Net
 - **Problem it solves:** regression with correlated predictors where you also want feature selection.
 - **Why use it:** balances Ridge's stability with Lasso's sparsity.
 - **When to use it:** many correlated predictors and Lasso alone is unstable.
@@ -408,7 +412,7 @@ Recommendation
 
 #### 2.1.2 Classification
 
-##### Logistic Regression
+##### 2.1.2.1 Logistic Regression
 - **Problem it solves:** binary (or multiclass) classification with probability estimates.
 - **Why use it:** simple, fast, interpretable, and outputs calibrated-ish probabilities.
 - **When to use it:** need a classification baseline, interpretability matters, relationships are relatively simple.
@@ -418,7 +422,7 @@ Recommendation
 - **Alternatives:** Decision Trees, Random Forest, SVM (for nonlinear boundaries via kernels).
 - **How to implement it:** `sklearn.linear_model.LogisticRegression`.
 
-##### Decision Trees
+##### 2.1.2.2 Decision Trees
 - **Problem it solves:** classification or regression with nonlinear relationships and feature interactions.
 - **Why use it:** intuitive, visualizable, handles mixed numerical/categorical data without scaling.
 - **When to use it:** need an interpretable model that captures nonlinear patterns and interactions.
@@ -428,7 +432,7 @@ Recommendation
 - **Alternatives:** Random Forest, Gradient Boosting (both fix the overfitting problem via ensembling).
 - **How to implement it:** `sklearn.tree.DecisionTreeClassifier` / `DecisionTreeRegressor`.
 
-##### Random Forest
+##### 2.1.2.3 Random Forest
 - **Problem it solves:** robust classification/regression on tabular data without heavy tuning.
 - **Why use it:** strong out-of-the-box performance with far less overfitting than a single tree.
 - **When to use it:** nonlinear tabular problems where you want a reliable model with minimal tuning.
@@ -438,7 +442,7 @@ Recommendation
 - **Alternatives:** XGBoost / LightGBM / CatBoost (usually higher accuracy), Decision Trees (more interpretable).
 - **How to implement it:** `sklearn.ensemble.RandomForestClassifier` / `RandomForestRegressor`.
 
-##### Support Vector Machines (SVM)
+##### 2.1.2.4 Support Vector Machines (SVM)
 - **Problem it solves:** classification (or regression) with a clear margin of separation between classes.
 - **Why use it:** effective in high-dimensional spaces, and kernels let it capture nonlinear boundaries.
 - **When to use it:** small-to-medium, high-dimensional datasets with reasonably separable classes.
@@ -448,7 +452,7 @@ Recommendation
 - **Alternatives:** Logistic Regression (linear, faster), Random Forest / Gradient Boosting (large tabular data).
 - **How to implement it:** `sklearn.svm.SVC` / `SVR`.
 
-##### K-Nearest Neighbors (KNN)
+##### 2.1.2.5 K-Nearest Neighbors (KNN)
 - **Problem it solves:** classification/regression where similar inputs should have similar outputs.
 - **Why use it:** extremely simple, no training phase, naturally nonlinear.
 - **When to use it:** small datasets where local similarity is meaningful and the decision boundary is irregular.
@@ -458,7 +462,7 @@ Recommendation
 - **Alternatives:** Decision Trees, SVM, clustering-based approaches.
 - **How to implement it:** `sklearn.neighbors.KNeighborsClassifier` / `KNeighborsRegressor`.
 
-##### Naive Bayes
+##### 2.1.2.6 Naive Bayes
 - **Problem it solves:** fast probabilistic classification, especially for text.
 - **Why use it:** extremely fast to train and predict, works well even with limited data.
 - **When to use it:** spam detection, sentiment analysis, document classification, quick baselines for NLP.
@@ -468,7 +472,7 @@ Recommendation
 - **Alternatives:** Logistic Regression, TF-IDF + Logistic Regression, Transformer-based text classifiers.
 - **How to implement it:** `sklearn.naive_bayes.MultinomialNB` / `GaussianNB` / `BernoulliNB`.
 
-##### Linear Discriminant Analysis (LDA)
+##### 2.1.2.7 Linear Discriminant Analysis (LDA)
 - **Problem it solves:** classification and dimensionality reduction when classes are linearly separable.
 - **Why use it:** simple, fast, and doubles as a dimensionality-reduction technique.
 - **When to use it:** classes are reasonably well separated and Gaussian-ish assumptions hold.
@@ -480,7 +484,7 @@ Recommendation
 
 #### 2.1.3 Gradient Boosting
 
-##### XGBoost
+##### 2.1.3.1 XGBoost
 - **Problem it solves:** high-accuracy classification/regression on structured/tabular data.
 - **Why use it:** consistently among the best-performing algorithms for tabular problems.
 - **When to use it:** tabular data, nonlinear relationships, feature interactions matter, missing values may exist.
@@ -490,7 +494,7 @@ Recommendation
 - **Alternatives:** LightGBM (faster on huge data), CatBoost (better with categorical features), Random Forest (simpler, less tuning).
 - **How to implement it:** `xgboost` Python package (`xgboost.XGBClassifier` / `XGBRegressor`).
 
-##### LightGBM
+##### 2.1.3.2 LightGBM
 - **Problem it solves:** gradient boosting at scale — very large datasets or many features.
 - **Why use it:** much faster and more memory-efficient than classic gradient boosting.
 - **When to use it:** large-scale tabular problems where training speed matters.
@@ -500,7 +504,7 @@ Recommendation
 - **Alternatives:** XGBoost, CatBoost.
 - **How to implement it:** `lightgbm` Python package (`lightgbm.LGBMClassifier` / `LGBMRegressor`).
 
-##### CatBoost
+##### 2.1.3.3 CatBoost
 - **Problem it solves:** gradient boosting on data with many categorical variables.
 - **Why use it:** handles categorical features natively, reducing preprocessing work.
 - **When to use it:** datasets with many (especially high-cardinality) categorical features.
@@ -516,7 +520,7 @@ Recommendation
 
 #### 2.2.1 Clustering
 
-##### K-Means
+##### 2.2.1.1 K-Means
 - **Problem it solves:** partitioning data into K groups based on similarity.
 - **Why use it:** fast, simple, scales well to large datasets.
 - **When to use it:** the number of clusters can be estimated and clusters are roughly spherical (customer segmentation).
@@ -526,7 +530,7 @@ Recommendation
 - **Alternatives:** DBSCAN (irregular shapes), Hierarchical Clustering (unknown K), GMM (soft assignment).
 - **How to implement it:** `sklearn.cluster.KMeans`.
 
-##### Hierarchical Clustering
+##### 2.2.1.2 Hierarchical Clustering
 - **Problem it solves:** understanding nested/hierarchical relationships between groups.
 - **Why use it:** doesn't require specifying the number of clusters upfront; produces an interpretable dendrogram.
 - **When to use it:** small-to-medium datasets where the relationship between clusters matters.
@@ -536,7 +540,7 @@ Recommendation
 - **Alternatives:** K-Means (faster at scale), DBSCAN.
 - **How to implement it:** `scipy.cluster.hierarchy` or `sklearn.cluster.AgglomerativeClustering`.
 
-##### DBSCAN
+##### 2.2.1.3 DBSCAN
 - **Problem it solves:** clustering with irregular shapes and automatic noise/outlier detection.
 - **Why use it:** finds arbitrarily shaped clusters and doesn't require specifying the number of clusters.
 - **When to use it:** geospatial/mobility data, or when clusters aren't spherical and noise detection is useful.
@@ -546,7 +550,7 @@ Recommendation
 - **Alternatives:** HDBSCAN (handles varying density), K-Means, GMM.
 - **How to implement it:** `sklearn.cluster.DBSCAN`.
 
-##### Gaussian Mixture Models (GMM)
+##### 2.2.1.4 Gaussian Mixture Models (GMM)
 - **Problem it solves:** clustering with overlapping groups where a probabilistic membership is more informative than a hard label.
 - **Why use it:** gives a probability of belonging to each cluster instead of a single hard assignment.
 - **When to use it:** cluster boundaries genuinely overlap and probabilistic membership is useful.
@@ -558,7 +562,7 @@ Recommendation
 
 #### 2.2.2 Dimensionality Reduction
 
-##### PCA
+##### 2.2.2.1 PCA
 - **Problem it solves:** reducing the number of variables while retaining as much variance as possible.
 - **Why use it:** speeds up downstream models, reduces noise, helps visualize high-dimensional data.
 - **When to use it:** many correlated numerical variables, or as a preprocessing step before another model.
@@ -568,7 +572,7 @@ Recommendation
 - **Alternatives:** UMAP / t-SNE (nonlinear, mainly for visualization), Autoencoders (nonlinear, learned).
 - **How to implement it:** `sklearn.decomposition.PCA`.
 
-##### t-SNE
+##### 2.2.2.2 t-SNE
 - **Problem it solves:** visualizing high-dimensional data in 2D/3D while preserving local neighborhoods.
 - **Why use it:** reveals cluster structure visually better than linear methods like PCA.
 - **When to use it:** exploring embeddings or neural network representations visually.
@@ -578,7 +582,7 @@ Recommendation
 - **Alternatives:** UMAP (faster, better global structure), PCA (linear, faster).
 - **How to implement it:** `sklearn.manifold.TSNE`.
 
-##### UMAP
+##### 2.2.2.3 UMAP
 - **Problem it solves:** nonlinear dimensionality reduction and visualization at larger scale than t-SNE.
 - **Why use it:** faster than t-SNE and preserves more global structure.
 - **When to use it:** visualizing embeddings, clustering pipelines, high-dimensional biological or NLP data.
@@ -590,7 +594,7 @@ Recommendation
 
 #### 2.2.3 Anomaly Detection
 
-##### Isolation Forest
+##### 2.2.3.1 Isolation Forest
 - **Problem it solves:** detecting anomalies in tabular data without labeled examples.
 - **Why use it:** simple, fast, and works well as a general-purpose anomaly detector.
 - **When to use it:** no anomaly labels are available and the dataset is tabular and reasonably large.
@@ -600,7 +604,7 @@ Recommendation
 - **Alternatives:** One-Class SVM, Local Outlier Factor (LOF), Autoencoders.
 - **How to implement it:** `sklearn.ensemble.IsolationForest`.
 
-##### One-Class SVM
+##### 2.2.3.2 One-Class SVM
 - **Problem it solves:** learning the boundary of "normal" data to flag anything outside it.
 - **Why use it:** effective in small/medium datasets where a clear "normal" region can be learned.
 - **When to use it:** small-to-medium datasets with a well-defined notion of normal behavior.
@@ -610,7 +614,7 @@ Recommendation
 - **Alternatives:** Isolation Forest (faster, scales better), LOF.
 - **How to implement it:** `sklearn.svm.OneClassSVM`.
 
-##### Local Outlier Factor (LOF)
+##### 2.2.3.3 Local Outlier Factor (LOF)
 - **Problem it solves:** detecting anomalies that are only unusual relative to their local neighborhood.
 - **Why use it:** captures anomalies that a global method (like Isolation Forest) might miss.
 - **When to use it:** anomalies are context-dependent (unusual in their local area but not globally).
@@ -624,7 +628,7 @@ Recommendation
 
 ### 2.3 Semi-Supervised Learning
 
-##### Semi-Supervised Algorithms
+##### 2.3.1 Semi-Supervised Algorithms
 - **Problem it solves:** learning when only a small fraction of the data is labeled.
 - **Why use it:** makes use of abundant unlabeled data to improve a model trained on limited labels.
 - **When to use it:** labeling is expensive/slow but unlabeled data is plentiful.
@@ -634,7 +638,7 @@ Recommendation
 - **Alternatives:** Transfer Learning, active learning (selectively labeling the most useful examples).
 - **How to implement it:** `sklearn.semi_supervised` (`SelfTrainingClassifier`, `LabelPropagation`).
 
-##### Transfer Learning
+##### 2.3.2 Transfer Learning
 - **Problem it solves:** building a strong model without training from scratch, using knowledge from a related task.
 - **Why use it:** dramatically reduces the data and compute needed.
 - **When to use it:** you have a pretrained model in a related domain and limited task-specific data.
@@ -644,7 +648,7 @@ Recommendation
 - **Alternatives:** training from scratch (if enough data/compute), Fine-Tuning.
 - **How to implement it:** pretrained models via `torchvision.models`, `transformers` (Hugging Face), freezing/unfreezing layers as needed.
 
-##### Fine-Tuning
+##### 2.3.3 Fine-Tuning
 - **Problem it solves:** adapting a pretrained model to a specific task, style, or domain.
 - **Why use it:** cheaper and faster than training a large model from scratch.
 - **When to use it:** the model needs to learn task-specific behavior beyond what pretraining covers.
@@ -658,7 +662,7 @@ Recommendation
 
 ### 2.4 Reinforcement Learning
 
-##### Q-Learning
+##### 2.4.1 Q-Learning
 - **Problem it solves:** learning optimal actions in an environment through trial and error, with discrete states/actions.
 - **Why use it:** simple, model-free, guaranteed to converge under standard conditions.
 - **When to use it:** small, discrete state/action spaces.
@@ -668,7 +672,7 @@ Recommendation
 - **Alternatives:** DQN (neural network instead of a table), SARSA.
 - **How to implement it:** custom Q-table implementation, or `gymnasium` environments with a simple Q-learning loop.
 
-##### SARSA
+##### 2.4.2 SARSA
 - **Problem it solves:** same as Q-Learning, but learning the value of the policy actually being followed.
 - **Why use it:** more conservative/safer learning since it accounts for the exploration policy's actual behavior.
 - **When to use it:** environments where the cost of exploratory mistakes is high and on-policy learning is preferred.
@@ -678,7 +682,7 @@ Recommendation
 - **Alternatives:** Q-Learning, DQN.
 - **How to implement it:** custom implementation similar to Q-Learning, updating with the actually-taken next action.
 
-##### Deep Q-Network (DQN)
+##### 2.4.3 Deep Q-Network (DQN)
 - **Problem it solves:** reinforcement learning in large or high-dimensional state spaces (e.g., pixels).
 - **Why use it:** replaces the Q-table with a neural network, scaling RL to complex environments.
 - **When to use it:** state spaces too large for tabular methods (video games, robotics with sensor input).
@@ -688,7 +692,7 @@ Recommendation
 - **Alternatives:** Policy Gradient methods, Actor-Critic, PPO.
 - **How to implement it:** `stable-baselines3` (`DQN`), or a custom PyTorch/TensorFlow implementation.
 
-##### Policy Gradient
+##### 2.4.4 Policy Gradient
 - **Problem it solves:** learning a policy directly, especially useful for continuous action spaces.
 - **Why use it:** works naturally where action spaces are continuous or very large.
 - **When to use it:** continuous control problems (robotics, physical simulations).
@@ -698,7 +702,7 @@ Recommendation
 - **Alternatives:** Actor-Critic (reduces variance), PPO.
 - **How to implement it:** `stable-baselines3` (`A2C`, `PPO` build on this idea), or custom REINFORCE implementation.
 
-##### Actor-Critic
+##### 2.4.5 Actor-Critic
 - **Problem it solves:** combining the strengths of value-based and policy-based RL to reduce variance and improve stability.
 - **Why use it:** more stable and sample-efficient training than pure policy gradient methods.
 - **When to use it:** as the foundation for most modern deep RL algorithms (A2C, A3C, PPO, SAC, DDPG).
@@ -708,7 +712,7 @@ Recommendation
 - **Alternatives:** PPO, SAC, DDPG (all Actor-Critic variants).
 - **How to implement it:** `stable-baselines3` (`A2C`, `SAC`, `DDPG`).
 
-##### Proximal Policy Optimization (PPO)
+##### 2.4.6 Proximal Policy Optimization (PPO)
 - **Problem it solves:** stable, reliable policy optimization across a wide range of RL problems.
 - **Why use it:** one of the most robust and widely used modern RL algorithms, works well "out of the box."
 - **When to use it:** as a strong default choice for most RL tasks, from games to robotics.
@@ -722,7 +726,7 @@ Recommendation
 
 ### 2.5 Time Series
 
-##### ARIMA
+##### 2.5.1 ARIMA
 - **Problem it solves:** forecasting a univariate time series with autocorrelation.
 - **Why use it:** simple, interpretable, well-established statistical approach.
 - **When to use it:** relationships are mostly linear, no strong seasonality, dataset isn't huge.
@@ -732,7 +736,7 @@ Recommendation
 - **Alternatives:** SARIMA (seasonality), Exponential Smoothing, Prophet, LSTM/Transformer (nonlinear/complex data).
 - **How to implement it:** `statsmodels.tsa.arima.model.ARIMA`.
 
-##### SARIMA
+##### 2.5.2 SARIMA
 - **Problem it solves:** forecasting seasonal time series.
 - **Why use it:** extends ARIMA to explicitly model recurring seasonal patterns.
 - **When to use it:** clear seasonal patterns exist (daily, weekly, yearly cycles).
@@ -742,7 +746,7 @@ Recommendation
 - **Alternatives:** Prophet, Exponential Smoothing, ARIMA.
 - **How to implement it:** `statsmodels.tsa.statespace.sarimax.SARIMAX`.
 
-##### Exponential Smoothing (Holt-Winters)
+##### 2.5.3 Exponential Smoothing (Holt-Winters)
 - **Problem it solves:** forecasting stable series with trend and/or seasonality.
 - **Why use it:** simple, fast, and effective for well-behaved series.
 - **When to use it:** series is relatively stable with clear trend/seasonal components.
@@ -752,7 +756,7 @@ Recommendation
 - **Alternatives:** SARIMA, Prophet.
 - **How to implement it:** `statsmodels.tsa.holtwinters.ExponentialSmoothing`.
 
-##### Prophet
+##### 2.5.4 Prophet
 - **Problem it solves:** business forecasting with trend, seasonality, and calendar effects (holidays, events).
 - **Why use it:** designed to be easy to use and robust to missing data and outliers, with built-in handling of holidays.
 - **When to use it:** business forecasting where calendar effects matter and ease of use is a priority.
@@ -762,7 +766,7 @@ Recommendation
 - **Alternatives:** SARIMA, Exponential Smoothing, ML-based forecasting (XGBoost with time features).
 - **How to implement it:** `prophet` Python package (`Prophet().fit()`).
 
-##### Vector Autoregression (VAR)
+##### 2.5.5 Vector Autoregression (VAR)
 - **Problem it solves:** forecasting multiple interdependent time series simultaneously.
 - **Why use it:** captures how variables influence each other over time, not just their own history.
 - **When to use it:** several related series (traffic, speed, weather) that affect one another.
@@ -772,7 +776,7 @@ Recommendation
 - **Alternatives:** Multivariate LSTM/Transformer models, separate univariate models per series.
 - **How to implement it:** `statsmodels.tsa.api.VAR`.
 
-##### Markov Chains
+##### 2.5.6 Markov Chains
 - **Problem it solves:** modeling transitions between discrete states over time.
 - **Why use it:** simple and interpretable way to reason about probabilistic future states.
 - **When to use it:** the problem has natural discrete states and transitions matter (traffic states, customer journeys).
@@ -782,7 +786,7 @@ Recommendation
 - **Alternatives:** Hidden Markov Models, Monte Carlo simulation.
 - **How to implement it:** custom transition-matrix implementation with NumPy, or `pomegranate` / `hmmlearn`.
 
-##### Hidden Markov Models (HMM)
+##### 2.5.7 Hidden Markov Models (HMM)
 - **Problem it solves:** modeling systems where the true state is hidden and only indirect observations are available.
 - **Why use it:** captures the structure of sequential data with unobserved underlying states.
 - **When to use it:** speech recognition, activity recognition, biological sequences, regime detection.
@@ -792,7 +796,7 @@ Recommendation
 - **Alternatives:** RNN/LSTM (learn representations directly without explicit state assumptions).
 - **How to implement it:** `hmmlearn` Python package.
 
-##### Monte Carlo Simulation
+##### 2.5.8 Monte Carlo Simulation
 - **Problem it solves:** estimating a distribution of possible future outcomes under uncertainty.
 - **Why use it:** doesn't require an analytical solution — just repeated random sampling.
 - **When to use it:** uncertainty matters and you want a distribution of outcomes, not a single point prediction (risk, finance, project planning).
@@ -802,7 +806,7 @@ Recommendation
 - **Alternatives:** analytical probability models (when tractable), Bayesian methods.
 - **How to implement it:** custom simulation loops in NumPy/Python, or specialized libraries depending on domain (e.g., `PyMC` for Bayesian Monte Carlo).
 
-##### Kalman Filter
+##### 2.5.9 Kalman Filter
 - **Problem it solves:** estimating the hidden state of a dynamic system from noisy sensor measurements.
 - **Why use it:** optimal (under linear-Gaussian assumptions) real-time state estimation.
 - **When to use it:** GPS, robotics, navigation, sensor fusion, tracking.
@@ -816,7 +820,7 @@ Recommendation
 
 ### 2.6 Optimization
 
-##### Genetic Algorithms
+##### 2.6.1 Genetic Algorithms
 - **Problem it solves:** optimization problems with no usable gradient, complex or discrete search spaces.
 - **Why use it:** flexible — works on almost any objective function, even non-differentiable ones.
 - **When to use it:** combinatorial optimization, scheduling, design problems where gradients aren't available.
@@ -826,7 +830,7 @@ Recommendation
 - **Alternatives:** Particle Swarm Optimization, gradient-based optimization (when applicable), simulated annealing.
 - **How to implement it:** `DEAP` Python package, or `scipy.optimize.differential_evolution`.
 
-##### Particle Swarm Optimization (PSO)
+##### 2.6.2 Particle Swarm Optimization (PSO)
 - **Problem it solves:** optimization over complex search spaces using a population of candidate solutions.
 - **Why use it:** simple to implement and often converges faster than Genetic Algorithms on continuous problems.
 - **When to use it:** continuous optimization problems with complex, multi-modal search spaces.
@@ -840,7 +844,7 @@ Recommendation
 
 ### 2.7 Probabilistic Models
 
-##### Bayesian Networks
+##### 2.7.1 Bayesian Networks
 - **Problem it solves:** modeling explicit probabilistic and causal/conditional relationships between variables.
 - **Why use it:** makes uncertainty and dependencies between variables explicit and reasoned about formally.
 - **When to use it:** domains where causal/conditional structure is known or important to reason about (medical diagnosis, risk modeling).
@@ -850,7 +854,7 @@ Recommendation
 - **Alternatives:** Logistic Regression (simpler predictive model), MCMC (for inference in complex probabilistic models).
 - **How to implement it:** `pgmpy` Python package.
 
-##### MCMC (Markov Chain Monte Carlo)
+##### 2.7.2 MCMC (Markov Chain Monte Carlo)
 - **Problem it solves:** sampling from complex probability distributions with no closed-form solution.
 - **Why use it:** enables Bayesian inference even when the posterior distribution can't be computed analytically.
 - **When to use it:** Bayesian statistics, complex hierarchical models.
@@ -864,7 +868,7 @@ Recommendation
 
 ### 2.8 Recommender Systems
 
-##### Collaborative Filtering
+##### 2.8.1 Collaborative Filtering
 - **Problem it solves:** recommending items based on patterns across many users' behavior.
 - **Why use it:** doesn't require knowing item content — just interaction data.
 - **When to use it:** enough historical user-item interactions exist.
@@ -874,7 +878,7 @@ Recommendation
 - **Alternatives:** Content-Based Filtering (handles cold start better), hybrid approaches.
 - **How to implement it:** `surprise` Python package, or matrix factorization libraries (`implicit`).
 
-##### Content-Based Filtering
+##### 2.8.2 Content-Based Filtering
 - **Problem it solves:** recommending items similar to what a user already likes, based on item attributes.
 - **Why use it:** works even without much user interaction history.
 - **When to use it:** item metadata is rich and user history is limited.
@@ -884,7 +888,7 @@ Recommendation
 - **Alternatives:** Collaborative Filtering, hybrid recommender systems.
 - **How to implement it:** custom similarity-based approach (TF-IDF + cosine similarity), or `sklearn` feature-based similarity.
 
-##### Matrix Factorization
+##### 2.8.3 Matrix Factorization
 - **Problem it solves:** large-scale recommendation by learning latent factors for users and items.
 - **Why use it:** scales well and often outperforms naive collaborative filtering on sparse interaction matrices.
 - **When to use it:** large-scale recommender systems with a sparse user-item interaction matrix.
@@ -898,7 +902,7 @@ Recommendation
 
 ### 2.9 Explainable AI
 
-##### SHAP
+##### 2.9.1 SHAP
 - **Problem it solves:** quantifying how much each feature contributed to a specific model prediction.
 - **Why use it:** consistent, theoretically grounded (game-theoretic) feature attribution.
 - **When to use it:** explaining predictions from complex models (XGBoost, LightGBM, CatBoost, Random Forest) to stakeholders or for compliance.
@@ -908,7 +912,7 @@ Recommendation
 - **Alternatives:** LIME (simpler, model-agnostic), Feature Importance (simpler, less rigorous).
 - **How to implement it:** `shap` Python package.
 
-##### LIME
+##### 2.9.2 LIME
 - **Problem it solves:** explaining an individual prediction from any model, regardless of its internal structure.
 - **Why use it:** fully model-agnostic — works even on black-box models SHAP doesn't natively support.
 - **When to use it:** you need a quick, local explanation for one prediction and don't need theoretical guarantees.
@@ -922,7 +926,7 @@ Recommendation
 
 ## 3. Deep Learning
 
-##### MLP (MultiLayer Perceptron)
+##### 3.1 MLP (MultiLayer Perceptron)
 - **Problem it solves:** general nonlinear function approximation for tabular classification/regression.
 - **Why use it:** flexible, can model complex nonlinear relationships given enough data.
 - **When to use it:** tabular data with complex nonlinear patterns, or as a component within larger architectures.
@@ -932,7 +936,7 @@ Recommendation
 - **Alternatives:** XGBoost / LightGBM / CatBoost for tabular data.
 - **How to implement it:** `torch.nn` / `tensorflow.keras` (`Dense` layers), or `sklearn.neural_network.MLPClassifier`.
 
-##### CNN (Convolutional Neural Network)
+##### 3.2 CNN (Convolutional Neural Network)
 - **Problem it solves:** detecting spatial patterns in images (or grid-like data).
 - **Why use it:** convolutional filters efficiently capture local spatial structure (edges, shapes, objects).
 - **When to use it:** image classification, object detection, segmentation, medical imaging.
@@ -942,7 +946,7 @@ Recommendation
 - **Alternatives:** Vision Transformers (for large-scale image tasks).
 - **How to implement it:** `torchvision.models` (ResNet, EfficientNet) or `tensorflow.keras.applications`.
 
-##### RNN (Recurrent Neural Network)
+##### 3.3 RNN (Recurrent Neural Network)
 - **Problem it solves:** modeling sequential data where order matters.
 - **Why use it:** processes sequences of variable length, maintaining a memory of past inputs.
 - **When to use it:** short-to-medium sequences (text, sensor signals, simple time series).
@@ -952,7 +956,7 @@ Recommendation
 - **Alternatives:** LSTM, GRU, Transformers.
 - **How to implement it:** `torch.nn.RNN` / `tensorflow.keras.layers.SimpleRNN`.
 
-##### LSTM
+##### 3.4 LSTM
 - **Problem it solves:** modeling sequences with long-term dependencies.
 - **Why use it:** memory gates let it retain relevant information over long sequences, unlike plain RNNs.
 - **When to use it:** time-series forecasting, text generation, sequential anomaly detection with long-range dependencies.
@@ -962,7 +966,7 @@ Recommendation
 - **Alternatives:** GRU (lighter), Transformers (state of the art for most sequence tasks).
 - **How to implement it:** `torch.nn.LSTM` / `tensorflow.keras.layers.LSTM`.
 
-##### GRU
+##### 3.5 GRU
 - **Problem it solves:** the same long-term dependency problem as LSTM, with a lighter architecture.
 - **Why use it:** fewer parameters, faster training, often comparable accuracy to LSTM.
 - **When to use it:** sequential modeling where training speed/resource constraints matter.
@@ -972,7 +976,7 @@ Recommendation
 - **Alternatives:** LSTM, Transformers.
 - **How to implement it:** `torch.nn.GRU` / `tensorflow.keras.layers.GRU`.
 
-##### Transformers
+##### 3.6 Transformers
 - **Problem it solves:** modeling sequences (and other structured data) by learning which elements should attend to each other.
 - **Why use it:** parallelizable training, captures long-range dependencies far better than RNNs/LSTMs.
 - **When to use it:** as the default architecture for most modern NLP and increasingly vision tasks.
@@ -982,7 +986,7 @@ Recommendation
 - **Alternatives:** LSTM/GRU (for smaller-scale sequential tasks), CNNs (for vision, though Vision Transformers now compete).
 - **How to implement it:** `transformers` (Hugging Face) for pretrained models; `torch.nn.Transformer` for custom architectures.
 
-##### Large Language Models (LLMs)
+##### 3.7 Large Language Models (LLMs)
 - **Problem it solves:** complex natural language understanding and generation at scale.
 - **Why use it:** captures broad world knowledge and language patterns from massive pretraining.
 - **When to use it:** summarization, translation, code generation, conversational systems, complex reasoning over text.
@@ -992,7 +996,7 @@ Recommendation
 - **Alternatives:** smaller fine-tuned Transformers, classical NLP methods for narrow, well-defined tasks.
 - **How to implement it:** APIs (Anthropic, OpenAI, etc.) or open-weight models via `transformers` / `vLLM`.
 
-##### Embeddings
+##### 3.8 Embeddings
 - **Problem it solves:** representing complex objects (words, images, users) as numerical vectors that capture similarity.
 - **Why use it:** enables similarity search, clustering, and input to downstream ML models from unstructured data.
 - **When to use it:** semantic search, recommendation, clustering, as input to RAG pipelines.
@@ -1002,7 +1006,7 @@ Recommendation
 - **Alternatives:** TF-IDF (sparse, interpretable), one-hot encoding (for small categorical spaces).
 - **How to implement it:** `sentence-transformers`, OpenAI/Anthropic/other embedding APIs, or `word2vec`/`fastText` for word-level embeddings.
 
-##### RAG (Retrieval-Augmented Generation)
+##### 3.9 RAG (Retrieval-Augmented Generation)
 - **Problem it solves:** giving an LLM access to information it wasn't trained on (private, recent, or domain-specific).
 - **Why use it:** avoids costly retraining/fine-tuning while keeping answers grounded in real, up-to-date documents.
 - **When to use it:** the LLM needs private documents, frequently updated information, or specialized domain knowledge.
@@ -1012,7 +1016,7 @@ Recommendation
 - **Alternatives:** Fine-tuning (bakes knowledge into weights instead of retrieving it), long-context prompting (for smaller document sets).
 - **How to implement it:** vector databases (Pinecone, Weaviate, Chroma) + `sentence-transformers` embeddings + an LLM API.
 
-##### Autoencoders
+##### 3.10 Autoencoders
 - **Problem it solves:** learning a compressed representation of data by reconstructing it.
 - **Why use it:** useful for dimensionality reduction, denoising, and anomaly detection without labels.
 - **When to use it:** unsupervised representation learning, anomaly detection, or denoising tasks.
@@ -1022,7 +1026,7 @@ Recommendation
 - **Alternatives:** PCA (linear, simpler), VAE (if generation is needed).
 - **How to implement it:** `torch.nn` / `tensorflow.keras` encoder-decoder architecture.
 
-##### Variational Autoencoders (VAE)
+##### 3.11 Variational Autoencoders (VAE)
 - **Problem it solves:** generating new samples similar to training data, with a structured latent space.
 - **Why use it:** unlike plain autoencoders, the latent space is a proper probability distribution you can sample from.
 - **When to use it:** generative tasks where a smooth, structured latent space is valuable (e.g., interpolating between samples).
@@ -1032,7 +1036,7 @@ Recommendation
 - **Alternatives:** GANs, Diffusion Models.
 - **How to implement it:** custom encoder-decoder with a reparameterization trick in PyTorch/TensorFlow.
 
-##### GANs
+##### 3.12 GANs
 - **Problem it solves:** generating realistic synthetic data (especially images).
 - **Why use it:** adversarial training can produce very sharp, realistic samples.
 - **When to use it:** image generation, style transfer, synthetic data augmentation.
@@ -1042,7 +1046,7 @@ Recommendation
 - **Alternatives:** Diffusion Models (now often preferred for image generation), VAEs (more stable, lower fidelity).
 - **How to implement it:** custom generator/discriminator in PyTorch, or pretrained GAN libraries.
 
-##### Diffusion Models
+##### 3.13 Diffusion Models
 - **Problem it solves:** high-quality generation of images, audio, or video.
 - **Why use it:** currently produces state-of-the-art image/video generation quality with more stable training than GANs.
 - **When to use it:** image/video/audio generation and editing tasks.
@@ -1052,7 +1056,7 @@ Recommendation
 - **Alternatives:** GANs (faster inference, less stable training), VAEs.
 - **How to implement it:** `diffusers` (Hugging Face) for pretrained diffusion pipelines (Stable Diffusion, etc.).
 
-##### Graph Neural Networks
+##### 3.14 Graph Neural Networks
 - **Problem it solves:** learning from data structured as graphs (nodes + edges).
 - **Why use it:** captures relational structure that standard neural networks (CNN, MLP) can't represent directly.
 - **When to use it:** social networks, fraud detection, molecular property prediction, transport networks, knowledge graphs.
@@ -1066,7 +1070,7 @@ Recommendation
 
 ## 4. Natural Language Processing
 
-##### TF-IDF
+##### 4.1 TF-IDF
 - **Problem it solves:** representing text numerically based on term importance across a document collection.
 - **Why use it:** simple, fast, and surprisingly strong baseline for many text tasks.
 - **When to use it:** text classification baselines, keyword extraction, classical search/retrieval.
@@ -1076,7 +1080,7 @@ Recommendation
 - **Alternatives:** Word2Vec, sentence embeddings, Transformer-based representations.
 - **How to implement it:** `sklearn.feature_extraction.text.TfidfVectorizer`.
 
-##### Word2Vec
+##### 4.2 Word2Vec
 - **Problem it solves:** learning dense vector representations of words that capture semantic relationships.
 - **Why use it:** captures analogy-like semantic relationships ("king − man + woman ≈ queen") better than sparse methods.
 - **When to use it:** as a stepping stone before modern contextual embeddings, or when a lightweight, offline word-level embedding is sufficient.
@@ -1086,7 +1090,7 @@ Recommendation
 - **Alternatives:** GloVe, FastText, Transformer-based contextual embeddings (BERT, sentence-transformers).
 - **How to implement it:** `gensim.models.Word2Vec`.
 
-##### Topic Modeling (LDA)
+##### 4.3 Topic Modeling (LDA)
 - **Problem it solves:** discovering latent topics within a collection of documents.
 - **Why use it:** unsupervised way to explore and organize large text collections without labels.
 - **When to use it:** exploratory analysis of large, unlabeled document collections.
@@ -1214,7 +1218,7 @@ Problem Type + Dataset Size + Number of Features + Data Quality
 ```
 
 A more sophisticated model isn't automatically a better model. A good Machine Learning workflow usually starts with a simple baseline and increases complexity only when necessary.
-# 84. Algorithm Selection Cheat Sheet
+# 12. Algorithm Selection Cheat Sheet
 
 | Problem                         | Good Starting Algorithms                       |
 | -------------------------------- | ----------------------------------------------- |
@@ -1251,7 +1255,7 @@ A more sophisticated model isn't automatically a better model. A good Machine Le
 
 ---
 
-# 85. Tabular Data: Practical Model Selection
+# 13. Tabular Data: Practical Model Selection
 
 For structured datasets, a practical workflow is often:
 
@@ -1275,21 +1279,7 @@ Deep Learning becomes especially attractive when working with large quantities o
 
 ---
 
-# 86. The Most Important Rule
-
-There is no universally best algorithm. The best choice depends on:
-
-```text
-Problem Type + Dataset Size + Number of Features + Data Quality
-+ Interpretability Requirements + Latency Requirements
-+ Computational Resources + Business Constraints
-```
-
-A sophisticated model is not automatically a better model. A good Machine Learning workflow usually starts with a simple baseline and progressively increases complexity only when necessary.
-
----
-
->  **Pendiente:** ir añadiendo aquí los enlaces reales a cada uno de tus repos a medida que los subas (uno por algoritmo/proyecto, o agrupados por bloque temático).
+>  **Pending:** Please add the actual links to each of your repos here as you upload them (one per algorithm/project, or grouped by thematic block).
 
 | Bloque | Teoría | Código | Estado |
 |---|---|---|---|
@@ -1304,30 +1294,30 @@ A sophisticated model is not automatically a better model. A good Machine Learni
 
 ---
 
-# Perspectiva final
+# Final perspective
 
-La Inteligencia Artificial no debería entenderse como una colección de algoritmos aislados, sino como una **caja de herramientas**.
+Artificial Intelligence should not be understood as a collection of isolated algorithms, but as a **toolbox**.
 
 ```text
-Problema de negocio / investigación
-            ↓
-       Entender los datos
-            ↓
-     Definir el problema de ML
-            ↓
-      Seleccionar un baseline
-            ↓
-        Entrenar
-            ↓
-        Evaluar
-            ↓
-        Explicar
-            ↓
-        Mejorar
-            ↓
-        Desplegar
-            ↓
-        Monitorizar
+Business Problem / Research
+         ↓
+ Understand the Data
+         ↓
+ Define the ML Problem
+         ↓
+  Select a Baseline
+         ↓
+       Train
+         ↓
+      Evaluate
+         ↓
+      Explain
+         ↓
+      Improve
+         ↓
+      Deploy
+         ↓
+      Monitor
 ```
 
 **True skill lies not in knowing how to execute each algorithm, but in knowing which approach to use, why it is appropriate, what assumptions it makes, what its limitations are, and how to evaluate whether it actually solves the problem.**
