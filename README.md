@@ -946,6 +946,7 @@ Recommendation
 - **Limitations:** needs substantial labeled image data (or transfer learning) and compute (ideally GPU).
 - **Alternatives:** Vision Transformers (for large-scale image tasks).
 - **How to implement it:** `torchvision.models` (ResNet, EfficientNet) or `tensorflow.keras.applications`.
+- **Repository**: https://github.com/mrderiu/Convolutional_Neural_Networks_CNN
 
 ##### 3.3 RNN (Recurrent Neural Network)
 - **Problem it solves:** modeling sequential data where order matters.
@@ -1288,7 +1289,8 @@ Deep Learning becomes especially attractive when working with large quantities o
 | Árboles / Random Forest / XGBoost | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Clustering (K-Means, DBSCAN, GMM) | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Series temporales | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Deep Learning (CNN/RNN/LSTM) | [enlace](#) | [repo](#) | 🔲 pendiente |
+| Deep Learning (MLP) | [enlace](#) | [[repo](#)](https://github.com/mrderiu/Neuronal_Network_MLP) | 🔲 OK |
+| Deep Learning (CNN) | [enlace](#) | [[repo](#)](https://github.com/mrderiu/Convolutional_Neural_Networks_CNN) | 🔲 OK |
 | Transformers / LLMs / RAG | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Generative AI (GAN/VAE/Diffusion) | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Reinforcement Learning | [enlace](#) | [repo](#) | 🔲 pendiente |
