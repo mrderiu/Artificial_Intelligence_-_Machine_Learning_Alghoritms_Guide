@@ -1289,8 +1289,8 @@ Deep Learning becomes especially attractive when working with large quantities o
 | Árboles / Random Forest / XGBoost | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Clustering (K-Means, DBSCAN, GMM) | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Series temporales | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Deep Learning (MLP) | [enlace](#) | [[repo](#)](https://github.com/mrderiu/Neuronal_Network_MLP) | 🔲 OK |
-| Deep Learning (CNN) | [enlace](#) | [[repo](#)](https://github.com/mrderiu/Convolutional_Neural_Networks_CNN) | 🔲 OK |
+| Deep Learning (MLP) | (https://github.com/mrderiu/Neuronal_Network_MLP) | (https://github.com/mrderiu/Neuronal_Network_MLP) | DONE |
+| Deep Learning (CNN) | (https://github.com/mrderiu/Convolutional_Neural_Networks_CNN) | (https://github.com/mrderiu/Convolutional_Neural_Networks_CNN) | DONE |
 | Transformers / LLMs / RAG | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Generative AI (GAN/VAE/Diffusion) | [enlace](#) | [repo](#) | 🔲 pendiente |
 | Reinforcement Learning | [enlace](#) | [repo](#) | 🔲 pendiente |
