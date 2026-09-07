@@ -1283,17 +1283,17 @@ Deep Learning becomes especially attractive when working with large quantities o
 
 >  **Pending:** Please add the actual links to each of your repos here as you upload them (one per algorithm/project, or grouped by thematic block).
 
-| Bloque | Teoría | Código | Estado |
-|---|---|---|---|
-| Regresión Lineal / Logística | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Árboles / Random Forest / XGBoost | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Clustering (K-Means, DBSCAN, GMM) | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Series temporales | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Deep Learning (MLP) | (https://github.com/mrderiu/Neuronal_Network_MLP) | (https://github.com/mrderiu/Neuronal_Network_MLP) | DONE |
-| Deep Learning (CNN) | (https://github.com/mrderiu/Convolutional_Neural_Networks_CNN) | (https://github.com/mrderiu/Convolutional_Neural_Networks_CNN) | DONE |
-| Transformers / LLMs / RAG | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Generative AI (GAN/VAE/Diffusion) | [enlace](#) | [repo](#) | 🔲 pendiente |
-| Reinforcement Learning | [enlace](#) | [repo](#) | 🔲 pendiente |
+| Bloque | Código | Estado |
+|---|--- |---|
+| Regresión Lineal / Logística | [repo](#) | 🔲 pendiente |
+| Árboles / Random Forest / XGBoost | [repo](#) | 🔲 pendiente |
+| Clustering (K-Means, DBSCAN, GMM) | [repo](#) | 🔲 pendiente |
+| Series temporales | [repo](#) | 🔲 pendiente |
+| Deep Learning (MLP) | https://github.com/mrderiu/Neuronal_Network_MLP | DONE |
+| Deep Learning (CNN) | https://github.com/mrderiu/Convolutional_Neural_Networks_CNN | DONE |
+| Transformers / LLMs / RAG | [repo](#) | 🔲 pendiente |
+| Generative AI (GAN/VAE/Diffusion) | [repo](#) | 🔲 pendiente |
+| Reinforcement Learning | [repo](#) | 🔲 pendiente |
 
 ---
 
