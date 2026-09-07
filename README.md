@@ -146,10 +146,8 @@ Each section links (or will progressively link) to **practical implementations**
 10. [Practical Workflow for Tabular Data](#10-practical-workflow-for-tabular-data)
 
 11. [The Most Important Rule](#11-the-most-important-rule)
-
-12. [Algorithm Selection Cheat Sheet](#11-algorithm-selection-cheat-sheet)
     
-13. [Tabular Data: Practical Model Selection](#13-tabular-data-practical-model-selection)
+12. [Tabular Data: Practical Model Selection](#13-tabular-data-practical-model-selection)
 
 ---
 
@@ -1152,75 +1150,7 @@ On imbalanced datasets, accuracy can be misleading — Precision, Recall, F1, an
 
 - **How to implement it:** `sklearn.metrics` (`mean_absolute_error`, `mean_squared_error`, `r2_score`, `accuracy_score`, `f1_score`, `roc_auc_score`, etc.).
 
----
-
-## 9. Algorithm Selection Cheat Sheet
-
-| Problem | Recommended Algorithms |
-|---|---|
-| Simple regression | Linear Regression |
-| Nonlinear tabular regression | Random Forest / XGBoost |
-| Simple binary classification | Logistic Regression |
-| Complex tabular classification | XGBoost / LightGBM / CatBoost |
-| Small high-dimensional dataset | SVM |
-| Text classification baseline | TF-IDF + Logistic Regression |
-| Customer segmentation | K-Means |
-| Geographic clustering | DBSCAN |
-| Probabilistic clustering | GMM |
-| Dimensionality reduction | PCA |
-| Data visualization | PCA / UMAP / t-SNE |
-| Anomaly detection | Isolation Forest |
-| Seasonal time series | SARIMA / Exponential Smoothing |
-| Complex time series | XGBoost / LSTM / Transformer |
-| State transitions | Markov Chains |
-| Future probability scenarios | Monte Carlo |
-| Images | CNN / Vision Transformer |
-| Sequential data | LSTM / GRU / Transformer |
-| Language understanding | Transformer |
-| Text generation | LLM |
-| Semantic search | Embeddings |
-| Private knowledge + LLM | RAG |
-| Image generation | Diffusion Models |
-| Synthetic data | GAN / VAE / Diffusion |
-| Graph relationships | GNN |
-| Recommendation | Collaborative Filtering / Matrix Factorization |
-| Autonomous decision making | Reinforcement Learning |
-| Complex optimization | Genetic Algorithms / PSO |
-| Transparent deterministic rules | Expert Systems |
-| Uncertain relationships | Bayesian Networks |
-
----
-
-## 10. Practical Workflow for Tabular Data
-
-```text
-Linear / Logistic Regression
-        ↓
-   Decision Tree
-        ↓
-   Random Forest
-        ↓
-XGBoost / LightGBM / CatBoost
-        ↓
-   Neural Network
-```
-
-This progression helps determine whether the added complexity actually improves performance. On many real-world tabular datasets, **Gradient Boosting algorithms outperform deep neural networks** as a starting point. Deep Learning becomes more attractive with large volumes of images, text, audio, video, or multimodal data.
-
----
-
-## 11. The Most Important Rule
-
-There is no universally best algorithm. The right choice depends on:
-
-```text
-Problem Type + Dataset Size + Number of Features + Data Quality
-+ Interpretability Requirements + Latency Requirements
-+ Computational Resources + Business Constraints
-```
-
-A more sophisticated model isn't automatically a better model. A good Machine Learning workflow usually starts with a simple baseline and increases complexity only when necessary.
-# 12. Algorithm Selection Cheat Sheet
+# 9. Algorithm Selection Cheat Sheet
 
 | Problem                         | Good Starting Algorithms                       |
 | -------------------------------- | ----------------------------------------------- |
@@ -1257,7 +1187,37 @@ A more sophisticated model isn't automatically a better model. A good Machine Le
 
 ---
 
-# 13. Tabular Data: Practical Model Selection
+## 10. Practical Workflow for Tabular Data
+
+```text
+Linear / Logistic Regression
+        ↓
+   Decision Tree
+        ↓
+   Random Forest
+        ↓
+XGBoost / LightGBM / CatBoost
+        ↓
+   Neural Network
+```
+
+This progression helps determine whether the added complexity actually improves performance. On many real-world tabular datasets, **Gradient Boosting algorithms outperform deep neural networks** as a starting point. Deep Learning becomes more attractive with large volumes of images, text, audio, video, or multimodal data.
+
+---
+
+## 11. The Most Important Rule
+
+There is no universally best algorithm. The right choice depends on:
+
+```text
+Problem Type + Dataset Size + Number of Features + Data Quality
++ Interpretability Requirements + Latency Requirements
++ Computational Resources + Business Constraints
+```
+
+A more sophisticated model isn't automatically a better model. A good Machine Learning workflow usually starts with a simple baseline and increases complexity only when necessary.
+
+# 12. Tabular Data: Practical Model Selection
 
 For structured datasets, a practical workflow is often:
 
